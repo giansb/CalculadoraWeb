@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora</title>
+    <link rel="stylesheet" href="estilo.css">
+    
+    
+</head>
+<body>
+    <h1 class="titulo">CALCULADORA JS</h1>
+    <div class="calculadora">
+        <input id="v" class="campo-r" type="text" placeholder="0" disabled="disabled">
+        <div class="line">
+            <button onclick="calcular('acao', 'c')" class="botao1 botao2" type="button">C</button>
+            <button onclick="calcular('acao', '/')" class="botao1" type="button">/</button>
+            <button onclick="calcular('acao', '*')" class="botao1" type="button">X</button>
+        </div>
+        <div class="line">
+            <button onclick="calcular('valor', 7)" class="botao1" type="button">7</button>
+            <button onclick="calcular('valor', 8)" class="botao1" type="button">8</button>
+            <button onclick="calcular('valor', 9)" class="botao1" type="button">9</button>
+            <button onclick="calcular('acao', '-')" class="botao1" type="button">-</button>
+        </div>
+        <div class="line">
+            <button onclick="calcular('valor', 4)" class="botao1" type="button">4</button>
+            <button onclick="calcular('valor', 5)" class="botao1" type="button">5</button>
+            <button onclick="calcular('valor', 6)" class="botao1" type="button">6</button>
+            <button onclick="calcular('acao', '+')" class="botao1" type="button">+</button>
+        </div>
+        <div class="last-line">
+            <div class="line-div">
+                <div class="line-div-2">
+                    <button onclick="calcular('valor', 1)" class="botao1 botao3" type="button">1</button>
+                    <button onclick="calcular('valor', 2)" class="botao1 botao3" type="button">2</button>
+                </div>
+                <div class="line-div-2">
+                    <button onclick="calcular('valor', 0)" class="botao1 botao4" type="button">0</button>
+                </div>
+            </div>
+            <div class="line-div-2">
+                <div class="line-div-2 div-2">
+                    <button onclick="calcular('valor', 3)" class="botao1 botao3 botao6" type="button">3</button>
+                    <button onclick="calcular('acao', '.')" class="botao1 botao3 botao6" type="button">.</button>
+                </div>
+                <div class="line-div-2 div-2">
+                    <button onclick="calcular('acao', '=')" class="botao1 botao5" type="button">=</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function calcular(tipo, valor){
+            if(tipo === 'acao'){
+                if(valor === 'c'){
+                    document.getElementById('v').value=''
+                }
+                if(valor === '+' || valor === '-' || valor === '*' || valor === '/' || valor === '.'){
+                    document.getElementById('v').value += valor
+                }
+                if(valor === '='){
+                    let valor_campo = eval(document.getElementById('v').value)
+                    document.getElementById('v').value = valor_campo
+                }
+
+            } else if(tipo === 'valor'){
+                document.getElementById('v').value += valor
+            }
+
+        }
+    </script>
+</body>
+
+
+</html>
